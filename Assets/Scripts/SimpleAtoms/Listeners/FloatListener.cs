@@ -26,6 +26,7 @@ namespace SimpleAtoms.Listeners
         public void OnEventRaised(float aValue)
         {
             _response.Invoke(aValue);
+            
         }
     }
 }
