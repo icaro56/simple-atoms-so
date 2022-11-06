@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickTargetBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI _targetText;
+    private Text _targetText;
 
     private void Awake()
     {
