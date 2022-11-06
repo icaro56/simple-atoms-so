@@ -1,0 +1,18 @@
+{
+  "name": "com.icaro.simple-atoms",
+  "version": "1.0.0",
+  "displayName": "Simple Atoms",
+  "description": "Use Scriptable Objects to store data and events in a game project",
+  "unity": "2020.1",
+ 
+  "keywords": [
+    "scriptable objects",
+    "atom",
+    "simple atoms"
+  ],
+  "author": {
+    "name": "Icaro's codes",
+    "email": "icarogoulart@yahoo.com.br",
+    "url": "https://icaro56.github.io/"
+  }
+}
