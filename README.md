@@ -10,6 +10,10 @@ graph TD;
     MonoBehaviour_A-->ScriptableObject_X;
     MonoBehaviour_B-->ScriptableObject_X;
 ```
+## How to Install
+In your Unity Project, open the Package Manager window, click on + Add git repository and put the follow url:
+**https://github.com/icaro56/simple-atoms-so.git#upm**
+
 
 ## How to work Simple Atoms (SA) lib
 
