@@ -4,6 +4,18 @@
   "displayName": "Simple Atoms",
   "description": "Use Scriptable Objects to store data and events in a game project",
   "unity": "2020.1",
+  "samples": [
+    {
+      "displayName": "Sample Float Listener",
+      "description": "This sample shows how to use Float Listeners",
+      "path": "Samples~/Example1"
+    },
+    {
+      "displayName": "Sample Void Listener",
+      "description": "This sample shows how to use Void Listeners",
+      "path": "Samples~/Example2"
+    }
+  ]
  
   "keywords": [
     "scriptable objects",
