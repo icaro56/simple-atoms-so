@@ -1,4 +1,4 @@
-# Simple Atom for Unity
+# Simple Atoms for Unity
 
 ## Introduction
 
@@ -11,9 +11,9 @@ graph TD;
     MonoBehaviour_B-->ScriptableObject_X;
 ```
 
-## How to work Simple Atom (SA) lib
+## How to work Simple Atoms (SA) lib
 
-The Simple Atom (SA) is divided in 3 types of classes: variables, events, listeners. The listeners are subdivided in two subtypes: variable listeners and event listeners.
+The Simple Atoms (SA) is divided in 3 types of classes: variables, events, listeners. The listeners are subdivided in two subtypes: variable listeners and event listeners.
 
 ### Variables
 
