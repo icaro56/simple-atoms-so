@@ -1,6 +1,6 @@
 {
   "name": "com.icaro.simple-atoms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Simple Atoms",
   "description": "Use Scriptable Objects to store data and events in a game project",
   "unity": "2020.1",

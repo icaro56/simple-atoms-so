@@ -15,7 +15,7 @@ In your Unity Project, open the Package Manager window, click on + Add git repos
 - **https://github.com/icaro56/simple-atoms-so.git#upm**
 
 Case you want to use a specific version, use the follow url changing the version:
-- **https://github.com/icaro56/simple-atoms-so.git#upm/v1.0.0**
+- **https://github.com/icaro56/simple-atoms-so.git#upm/v1.1.0**
 
 
 ## How to work Simple Atoms (SA) lib
@@ -97,6 +97,13 @@ public class CustomVariableListener : BaseVariableListener<Custom>
 In the Simple Atom project, there are examples in the scene folder:
 - Example 1 - Float Listeners
 - Example 2 - Void Listener 
+
+## Generator
+Now (1.1.*) it is possible to use the generator to create new Simple Atoms types. Tools->Simple Atoms -> Create New Atom Type
+
+- Inform type: i.e double
+- Inform the namespace when necessary
+- Check what type you want create: variable, event, listeners
 
 ## A complete implementation of Atoms
 If you need a complete implementation of Atoms with many use cases, then you can use the Unity Atoms.
