@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/icaro56/simple-atoms-so/compare/v1.1.0...v1.1.1) (2025-11-27)
+
+
+### Bug Fixes
+
+* ci ([f5a7c6e](https://github.com/icaro56/simple-atoms-so/commit/f5a7c6e3b1657983f3fe787357e242de0d23cb49))
+
 # [1.1.0](https://github.com/icaro56/simple-atoms-so/compare/v1.0.0...v1.1.0) (2022-11-08)
 
 
