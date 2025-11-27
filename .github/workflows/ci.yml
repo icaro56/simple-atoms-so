@@ -1,45 +1,72 @@
 name: CI
+
 on:
   push:
     branches:
-    - main
+      - main
+
 jobs:
   split-upm:
-    name: split upm branch (force)
+    name: Split UPM branch (force)
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Semantic release
-      id: semantic
-      uses: cycjimmy/semantic-release-action@v2
-      with:
-        extra_plugins: |
-          @semantic-release/changelog
-          @semantic-release/git
-        branch: main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: split upm branch
-      run: |
-        git branch -d upm &> /dev/null || echo upm branch not found
-        git subtree split -P "$PKG_ROOT" -b upm
-        git checkout upm
-        if [[ -d "Samples" ]]; then
-          git mv Samples Samples~
-          rm -f Samples.meta
-          git config --global user.name 'github-bot'
-          git config --global user.email 'github-bot@users.noreply.github.com'
-          git commit -am "fix: Samples => Samples~"
-        fi
-        git push -f -u origin upm
-      env:
-        PKG_ROOT: Packages/simple-atoms
-    - name: Create upm git tag
-      if: steps.semantic.outputs.new_release_published == 'true'
-      run: |
-        git tag $TAG upm
-        git push origin --tags
-      env:
-        TAG: upm/v${{ steps.semantic.outputs.new_release_version }}
+      # ----------------------------------------
+      # Checkout
+      # ----------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ----------------------------------------
+      # Semantic Release
+      # ----------------------------------------
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ----------------------------------------
+      # Split UPM branch
+      # ----------------------------------------
+      - name: Split UPM branch
+        env:
+          PKG_ROOT: Packages/simple-atoms
+        run: |
+          # Remove branch if exists (no error output)
+          git branch -D upm 2>/dev/null || echo "UPM branch not found"
+
+          # Create new UPM branch from subtree
+          git subtree split -P "$PKG_ROOT" -b upm
+
+          git checkout upm
+
+          # Rename Samples folder if exists
+          if [[ -d "Samples" ]]; then
+            git mv Samples Samples~
+            rm -f Samples.meta
+            git config user.name "github-bot"
+            git config user.email "github-bot@users.noreply.github.com"
+            git commit -am "fix: Samples => Samples~"
+          fi
+
+          # Push branch
+          git push -f -u origin upm
+
+      # ----------------------------------------
+      # Create new UPM Tag
+      # ----------------------------------------
+      - name: Create UPM git tag
+        if: steps.semantic.outputs.new_release_published == 'true'
+        env:
+          TAG: upm/v${{ steps.semantic.outputs.new_release_version }}
+        run: |
+          git tag "$TAG" upm
+          git push origin --tags
