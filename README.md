@@ -15,7 +15,7 @@ In your Unity Project, open the Package Manager window, click on + Add git repos
 - **https://github.com/icaro56/simple-atoms-so.git#upm**
 
 Case you want to use a specific version, use the follow url changing the version:
-- **https://github.com/icaro56/simple-atoms-so.git#upm/v1.1.0**
+- **https://github.com/icaro56/simple-atoms-so.git#upm/v1.1.1**
 
 
 ## How to work Simple Atoms (SA) lib
